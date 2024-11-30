@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: astral-sh/setup-uv@v1
+      - uses: astral-sh/setup-uv@v4
         with:
           version: "latest"
       - name: Install dependencies
@@ -36,7 +36,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: wheels
-      - uses: hynek/setup-cached-uv@v1
+      - uses: astral-sh/setup-uv@v4
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: __token__
